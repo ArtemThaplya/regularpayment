@@ -2,12 +2,11 @@ package com.tsaplya.payments;
 
 
 import com.tsaplya.beans.InstructionRegularPayment;
-import com.tsaplya.service.CRUD;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public abstract class PaymentsCRUD implements CRUD {
+public class Payments {
     private JdbcTemplate template;
-    @Override
+
     public int create(InstructionRegularPayment instructionRegularPayment) {
         String create ="INSERT INTO RegularPayment (fullName, inn, cardNumber, beneficiarysCurrentAccount, mfo, okpo, recipientsName, retirementPeriod, amountOfPayment)"
                 + "VALUES('"+instructionRegularPayment.getFullName()+"',"+ instructionRegularPayment.getINN()+",'"+instructionRegularPayment.getCardNumber()
@@ -17,7 +16,6 @@ public abstract class PaymentsCRUD implements CRUD {
                 return template.update(create);
     }
 
-    @Override
     public int update(InstructionRegularPayment instructionRegularPayment, int id) {
         String update ="UPDATE RegularPayment SET fullName='"+instructionRegularPayment.getFullName()+"',inn='"+instructionRegularPayment.getINN()+"',cardNumber='"+instructionRegularPayment.getCardNumber()
                 +"',beneficiarysCurrentAccount='"+instructionRegularPayment.getBeneficiarysCurrentAccount()+"',mfo='"+instructionRegularPayment.getMFO()
@@ -27,7 +25,6 @@ public abstract class PaymentsCRUD implements CRUD {
         return template.update(update);
     }
 
-    @Override
     public int delete(int id) {
         String delete="DELETE FROM RegularPayment WHERE id="+id+"";
         return template.update(delete);

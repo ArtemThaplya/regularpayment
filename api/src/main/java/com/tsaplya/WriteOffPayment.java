@@ -1,7 +1,7 @@
 package com.tsaplya;
 
 import com.tsaplya.beans.TransactionEntries;
-import com.tsaplya.entries.EntriesCRUD;
+import com.tsaplya.entries.Entries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +13,13 @@ public class WriteOffPayment {
     @Autowired
     private TransactionEntries regularPayment;
     @Autowired
-    private EntriesCRUD entriesCRUD;
+    private Entries entries;
     @Autowired
     private JdbcTemplate template;
 
     @RequestMapping("/creatingPaymentWires/{id}")
     public String creatingPaymentOFWires(int idInstructionRegularPayment) {                      // cоздание проводки по платежу
-        entriesCRUD.create(idInstructionRegularPayment);
+        entries.create(idInstructionRegularPayment);
         return "view";
     }
 
@@ -45,7 +45,7 @@ public class WriteOffPayment {
 
     @RequestMapping("/deleteEntries/{id}")
     public String reversalWires(int id) {                                                        //cторнирока проводки (удаление)
-        entriesCRUD.delete(id);
+        entries.delete(id);
         return "view";
     }
 }

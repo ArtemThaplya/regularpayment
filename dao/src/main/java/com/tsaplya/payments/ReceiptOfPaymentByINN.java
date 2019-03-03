@@ -12,6 +12,5 @@ public class ReceiptOfPaymentByINN implements ReceivingPayment {
     public InstructionRegularPayment receivingPayment(long inn) {
         String sql = "SELECT * FROM RegularPayment WHERE inn=?";
         return template.queryForObject(sql, new Object[]{inn}, new BeanPropertyRowMapper<>(InstructionRegularPayment.class));
-
     }
 }

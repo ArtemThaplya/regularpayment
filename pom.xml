@@ -21,8 +21,8 @@
 
 	<modules>
 		<module>dao</module>
-		<module>serviceBusinessLogic</module>
-		<module>regulatoryModule</module>
+		<module>api</module>
+		<module>regulatory</module>
 	</modules>
 
 	<dependencies>

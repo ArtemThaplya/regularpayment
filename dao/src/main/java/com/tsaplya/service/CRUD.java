@@ -1,4 +1,4 @@
-package com.tsaplya.serviceCRUD;
+package com.tsaplya.service;
 
 import com.tsaplya.beans.InstructionRegularPayment;
 import com.tsaplya.beans.TransactionEntries;

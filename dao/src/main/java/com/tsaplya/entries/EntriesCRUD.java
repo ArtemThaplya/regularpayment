@@ -2,7 +2,7 @@ package com.tsaplya.entries;
 
 
 import com.tsaplya.beans.TransactionEntries;
-import com.tsaplya.serviceCRUD.CRUD;
+import com.tsaplya.service.CRUD;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Date;

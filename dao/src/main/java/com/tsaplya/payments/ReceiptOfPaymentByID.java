@@ -1,7 +1,7 @@
 package com.tsaplya.payments;
 
 import com.tsaplya.beans.InstructionRegularPayment;
-import com.tsaplya.serviceCRUD.ReceivingPayment;
+import com.tsaplya.service.ReceivingPayment;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 

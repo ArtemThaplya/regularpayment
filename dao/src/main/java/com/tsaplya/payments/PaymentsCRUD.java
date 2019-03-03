@@ -2,7 +2,7 @@ package com.tsaplya.payments;
 
 
 import com.tsaplya.beans.InstructionRegularPayment;
-import com.tsaplya.serviceCRUD.CRUD;
+import com.tsaplya.service.CRUD;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public abstract class PaymentsCRUD implements CRUD {

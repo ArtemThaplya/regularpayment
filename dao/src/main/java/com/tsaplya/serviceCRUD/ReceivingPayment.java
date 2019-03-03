@@ -1,6 +1,7 @@
-package payments.serviceCRUD;
+package com.tsaplya.serviceCRUD;
 
-import com.regularpayment.beans.InstructionRegularPayment;
+
+import com.tsaplya.beans.InstructionRegularPayment;
 
 public interface ReceivingPayment {
     InstructionRegularPayment receivingPayment(long id);

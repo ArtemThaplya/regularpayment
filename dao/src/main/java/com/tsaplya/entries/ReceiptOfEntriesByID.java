@@ -1,9 +1,9 @@
-package entries;
+package com.tsaplya.entries;
 
-import com.regularpayment.beans.InstructionRegularPayment;
+import com.tsaplya.beans.InstructionRegularPayment;
+import com.tsaplya.serviceCRUD.ReceivingPayment;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import payments.serviceCRUD.ReceivingPayment;
 
 public class ReceiptOfEntriesByID implements ReceivingPayment {
     private JdbcTemplate template;

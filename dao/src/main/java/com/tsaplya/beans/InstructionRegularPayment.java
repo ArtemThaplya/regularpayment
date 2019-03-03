@@ -1,6 +1,7 @@
-package com.regularpayment.beans;
+package com.tsaplya.beans;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class InstructionRegularPayment {
     private int id;
@@ -11,7 +12,7 @@ public class InstructionRegularPayment {
     private int MFO;
     private int OKPO;
     private String recipientsName;
-    private String retirementPeriod;
+    private Date retirementPeriod;
     private BigDecimal amountOfPayment;
 
     public InstructionRegularPayment() {
@@ -82,11 +83,11 @@ public class InstructionRegularPayment {
         this.recipientsName = recipientsName;
     }
 
-    public String getRetirementPeriod() {
+    public Date getRetirementPeriod() {
         return retirementPeriod;
     }
 
-    public void setRetirementPeriod(String retirementPeriod) {
+    public void setRetirementPeriod(Date retirementPeriod) {
         this.retirementPeriod = retirementPeriod;
     }
 

@@ -1,6 +1,5 @@
 package com.tsaplya;
 
-import com.tsaplya.beans.TransactionEntries;
 import com.tsaplya.entries.Entries;
 import com.tsaplya.payments.VerificationWriteOff;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +7,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 public class WriteOffPayment {
-    @Autowired
-    private TransactionEntries regularPayment;
-    @Autowired
-    private Entries entries;
+    private Entries entries = new Entries();
+    private VerificationWriteOff verificationWriteOff = new VerificationWriteOff();
     @Autowired
     private JdbcTemplate template;
-    private VerificationWriteOff verificationWriteOff;
 
     @RequestMapping("/creatingPaymentEntries/{id}")
     public String creatingEntriesOfPayment(int idInstructionRegularPayment) {                      // cоздание проводки по платежу

@@ -52,6 +52,23 @@ public class InstructionRegularPayment {
     public InstructionRegularPayment() {
     }
 
+    public InstructionRegularPayment(@NotNull(message = "ID cannot be null") int id, @NotNull(message = "Full name cannot be null") String fullName, @NotNull(message = "INN cannot be null") @Size(min = 10, max = 10, message
+            = "Must be 10 characters") Long INN, @NotNull(message = "Card number cannot be null") @Size(min = 16, max = 16, message
+            = "Must be 16 characters") Long cardNumber, @NotNull(message = "Beneficiary current account cannot be null") @Size(min = 20, max = 20, message
+            = "Must be 20 characters") Long beneficiarysCurrentAccount, @NotNull(message = "MFO cannot be null") @Size(min = 6, max = 6, message
+            = "Must be 6 characters") int MFO, @NotNull(message = "OKPO cannot be null") @Size(min = 10, max = 10, message
+            = "Must be 10 characters") int OKPO, @NotNull(message = "Recipients name cannot be null") String recipientsName, @NotNull(message = "Retirement period cannot be null") Date retirementPeriod, @Positive @NotNull(message = "Amount  of payment cannot be null") BigDecimal amountOfPayment) {
+        this.id = id;
+        this.fullName = fullName;
+        this.INN = INN;
+        this.cardNumber = cardNumber;
+        this.beneficiarysCurrentAccount = beneficiarysCurrentAccount;
+        this.MFO = MFO;
+        this.OKPO = OKPO;
+        this.recipientsName = recipientsName;
+        this.retirementPeriod = retirementPeriod;
+        this.amountOfPayment = amountOfPayment;
+    }
 
     public int getId() {
         return id;

@@ -2,18 +2,21 @@ package com.tsaplya.payments;
 
 
 import com.tsaplya.beans.InstructionRegularPayment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 class Payments {
+    @Autowired
     private JdbcTemplate template;
 
-    int create(InstructionRegularPayment instructionRegularPayment) {
+    InstructionRegularPayment create(InstructionRegularPayment instructionRegularPayment) {
         String create = "INSERT INTO RegularPayment (fullName, inn, cardNumber, beneficiarysCurrentAccount, mfo, okpo, recipientsName, retirementPeriod, amountOfPayment)"  //запрос в БД, для создания
                 + "VALUES('" + instructionRegularPayment.getFullName() + "'," + instructionRegularPayment.getINN() + ",'" + instructionRegularPayment.getCardNumber()
                 + ",'" + instructionRegularPayment.getBeneficiarysCurrentAccount() + ",'" + instructionRegularPayment.getMFO() + ",'" + instructionRegularPayment.getOKPO()
                 + ",'" + instructionRegularPayment.getRecipientsName() + ",'" + instructionRegularPayment.getRetirementPeriod()
                 + ",'" + instructionRegularPayment.getAmountOfPayment() + "')";
-        return template.update(create);
+        template.update(create);
+        return instructionRegularPayment;
     }
 
     int update(InstructionRegularPayment instructionRegularPayment) {
@@ -28,9 +31,5 @@ class Payments {
     int delete(int id) {
         String delete = "DELETE FROM RegularPayment WHERE id=" + id + "";     // запрос удаления
         return template.update(delete);
-    }
-
-    void check() {
-
     }
 }

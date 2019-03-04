@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 public class DataGetting {
-    private ReceiptOfPaymentByINN receiptOfPaymentByINN;
-    private PaymentByBeneficiarysCurrentAccount getPaymentBynecipientsName;
-    private EntriesByID getEntriesByID;
+    private ReceiptOfPaymentByINN receiptOfPaymentByINN = new ReceiptOfPaymentByINN();
+    private PaymentByBeneficiarysCurrentAccount getPaymentBynecipientsName = new PaymentByBeneficiarysCurrentAccount();
+    private EntriesByID getEntriesByID = new EntriesByID();
     @Autowired
     private JdbcTemplate template;
 

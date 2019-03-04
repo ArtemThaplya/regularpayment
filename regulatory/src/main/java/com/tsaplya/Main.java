@@ -7,7 +7,5 @@ public class Main {
         StartWriteOff startWriteOff = new StartWriteOff();
         startWriteOff.allPayments();
         startWriteOff.verificationOfNeedForWriteOffPayment();
-
-
     }
 }

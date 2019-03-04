@@ -2,10 +2,12 @@ package com.tsaplya.payments;
 
 import com.tsaplya.beans.InstructionRegularPayment;
 import com.tsaplya.service.ReceivingPayment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ReceiptOfPaymentByOKPO implements ReceivingPayment {
+    @Autowired
     private JdbcTemplate template;
 
     @Override

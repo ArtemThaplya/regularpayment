@@ -3,15 +3,16 @@ package com.tsaplya.entries;
 
 import com.tsaplya.beans.InstructionRegularPayment;
 import com.tsaplya.beans.TransactionEntries;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Date;
 
 public class Entries {
-    private TransactionEntries transactionEntries;
-    private JdbcTemplate template;
     private Date date = new Date();
+    @Autowired
+    private JdbcTemplate template;
 
     public int create(int idInstructionRegularPayment) {                                 // cоздание проводки по платежу
         String sql = "SELECT amountOfPayment FROM RegularPayment WHERE id=" + idInstructionRegularPayment + "";

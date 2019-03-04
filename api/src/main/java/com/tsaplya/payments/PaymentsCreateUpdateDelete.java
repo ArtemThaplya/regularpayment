@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 public class PaymentsCreateUpdateDelete {
-    private Payments payments;
+    private Payments payments = new Payments();
 
     @RequestMapping(value = "/createPayments", method = RequestMethod.POST)
     String createPayments(@ModelAttribute("emp") InstructionRegularPayment emp) {           // получение объекта

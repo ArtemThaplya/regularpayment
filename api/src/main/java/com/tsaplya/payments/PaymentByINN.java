@@ -3,7 +3,7 @@ package com.tsaplya.payments;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 public class PaymentByINN {
-    private ReceiptOfPaymentByINN receiptOfPaymentByINN;
+    private ReceiptOfPaymentByINN receiptOfPaymentByINN = new ReceiptOfPaymentByINN();
 
     @RequestMapping("/paymentByINN/{inn}")
     String paymentByINN(int inn) {

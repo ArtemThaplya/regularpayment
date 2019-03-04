@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 public class EntriesCreateUpdateDelete {
-    private Entries entries;
+    private Entries entries = new Entries();
 
     @RequestMapping(value = "/createEntries", method = RequestMethod.GET)
     String createEntries(@PathVariable int id) {           // получение объекта

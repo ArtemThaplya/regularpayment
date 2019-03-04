@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class StartWriteOff {
-    private Entries entries;
     @Autowired
     private JdbcTemplate template;
 
@@ -31,6 +30,7 @@ public class StartWriteOff {
     }
 
     public void verificationOfNeedForWriteOffPayment() {
+        Entries entries = new Entries();
         long currentTimeMilliSeconds = System.currentTimeMillis();                                                          // текущеее время
         List<InstructionRegularPayment> listRegularPayment = allPayments();                                                 // выбор всех платежей, сохранение в списке
         for (InstructionRegularPayment list : listRegularPayment) {
@@ -47,7 +47,9 @@ public class StartWriteOff {
             long milliSecondsFutureWriteOffs = Timestamp.valueOf(retirementPeriodTime).getTime();
             if (currentTimeMilliSeconds >= milliSecondsFutureWriteOffs) {                                                                   // определяем нужно ли списание
                 entries.create(idInstructionRegularPayment);
+                System.out.println("Найден платеж. Создаётся проводка.");
             }
+            System.out.println("Платежи для проводки не найдены.");
         }
     }
 }

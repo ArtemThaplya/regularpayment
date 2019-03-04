@@ -1,13 +1,22 @@
 package com.tsaplya.beans;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class TransactionEntries {
+    @NotNull(message = "ID cannot be null")
     private int id;
+
+    @NotNull(message = "ID cannot be null")
     private int idInstructionRegularPayment;
+
+    @NotNull(message = "ID cannot be null")
     private Date dateAndTime;
+
+    @NotNull(message = "ID cannot be null")
     private BigDecimal amountOfPayment;
+
     private Boolean status;
 
     public TransactionEntries() {

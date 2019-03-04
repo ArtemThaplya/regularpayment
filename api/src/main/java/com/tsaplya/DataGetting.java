@@ -1,7 +1,7 @@
 package com.tsaplya;
 
-import com.tsaplya.entries.GetEntriesByID;
-import com.tsaplya.payments.GetPaymentByBeneficiarysCurrentAccount;
+import com.tsaplya.entries.EntriesByID;
+import com.tsaplya.payments.PaymentByBeneficiarysCurrentAccount;
 import com.tsaplya.payments.ReceiptOfPaymentByINN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class DataGetting {
     private ReceiptOfPaymentByINN receiptOfPaymentByINN;
-    private GetPaymentByBeneficiarysCurrentAccount getPaymentBynecipientsName;
-    private GetEntriesByID getEntriesByID;
+    private PaymentByBeneficiarysCurrentAccount getPaymentBynecipientsName;
+    private EntriesByID getEntriesByID;
     @Autowired
     private JdbcTemplate template;
 

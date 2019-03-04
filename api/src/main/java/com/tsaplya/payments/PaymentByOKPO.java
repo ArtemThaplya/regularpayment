@@ -2,7 +2,7 @@ package com.tsaplya.payments;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-public class GetPaymentByOKPO {
+public class PaymentByOKPO {
     private ReceiptOfPaymentByOKPO receiptOfPaymentByOKPO;
 
     @RequestMapping("/paymentByOKPO/{OKPO}")

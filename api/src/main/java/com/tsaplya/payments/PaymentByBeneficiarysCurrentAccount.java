@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class GetPaymentByBeneficiarysCurrentAccount implements ReceivingPayment {
+public class PaymentByBeneficiarysCurrentAccount implements ReceivingPayment {
     @Autowired
     private JdbcTemplate template;
 

@@ -2,7 +2,7 @@ package com.tsaplya.payments;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-public class GetPaymentByINN {
+public class PaymentByINN {
     private ReceiptOfPaymentByINN receiptOfPaymentByINN;
 
     @RequestMapping("/paymentByINN/{inn}")

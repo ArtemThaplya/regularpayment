@@ -1,18 +1,52 @@
 package com.tsaplya.beans;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class InstructionRegularPayment {
+
+    @NotNull(message = "ID cannot be null")
     private int id;
+
+    @NotNull(message = "Full name cannot be null")
     private String fullName;
+
+    @NotNull(message = "INN cannot be null")
+    @Size(min = 10, max = 10, message
+            = "Must be 10 characters")
     private Long INN;
+
+    @NotNull(message = "Card number cannot be null")
+    @Size(min = 16, max = 16, message
+            = "Must be 16 characters")
     private Long cardNumber;
+
+    @NotNull(message = "Beneficiary current account cannot be null")
+    @Size(min = 20, max = 20, message
+            = "Must be 20 characters")
     private Long beneficiarysCurrentAccount;
+
+    @NotNull(message = "MFO cannot be null")
+    @Size(min = 6, max = 6, message
+            = "Must be 6 characters")
     private int MFO;
+
+    @NotNull(message = "OKPO cannot be null")
+    @Size(min = 10, max = 10, message
+            = "Must be 10 characters")
     private int OKPO;
+
+    @NotNull(message = "Recipients name cannot be null")
     private String recipientsName;
+
+    @NotNull(message = "Retirement period cannot be null")
     private Date retirementPeriod;
+
+    @Positive
+    @NotNull(message = "Amount  of payment cannot be null")
     private BigDecimal amountOfPayment;
 
     public InstructionRegularPayment() {

@@ -12,7 +12,7 @@ public class ReceiptOfEntriesByID implements ReceivingPayment {
 
     @Override
     public InstructionRegularPayment receivingPayment(long id) {
-        String sql = "SELECT * FROM Entries WHERE id=?";
+        String sql = "SELECT * FROM Entries WHERE id=?";                       // получения проводки по ID
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(InstructionRegularPayment.class));
     }
 }

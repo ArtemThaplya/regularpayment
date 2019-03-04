@@ -29,4 +29,8 @@ public class Payments {
         String delete="DELETE FROM RegularPayment WHERE id="+id+"";
         return template.update(delete);
     }
+
+    void check(){
+
+    }
 }

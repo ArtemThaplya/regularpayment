@@ -4,11 +4,11 @@ package com.tsaplya.payments;
 import com.tsaplya.beans.InstructionRegularPayment;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class Payments {
+class Payments {
     private JdbcTemplate template;
 
-    public int create(InstructionRegularPayment instructionRegularPayment) {
-        String create ="INSERT INTO RegularPayment (fullName, inn, cardNumber, beneficiarysCurrentAccount, mfo, okpo, recipientsName, retirementPeriod, amountOfPayment)"
+    int create(InstructionRegularPayment instructionRegularPayment) {
+        String create ="INSERT INTO RegularPayment (fullName, inn, cardNumber, beneficiarysCurrentAccount, mfo, okpo, recipientsName, retirementPeriod, amountOfPayment)"  //запрос в БД, для создания
                 + "VALUES('"+instructionRegularPayment.getFullName()+"',"+ instructionRegularPayment.getINN()+",'"+instructionRegularPayment.getCardNumber()
                 +",'"+instructionRegularPayment.getBeneficiarysCurrentAccount()+",'"+instructionRegularPayment.getMFO()+",'"+instructionRegularPayment.getOKPO()
                 +",'"+instructionRegularPayment.getRecipientsName()+",'"+instructionRegularPayment.getRetirementPeriod()
@@ -16,8 +16,8 @@ public class Payments {
                 return template.update(create);
     }
 
-    public int update(InstructionRegularPayment instructionRegularPayment, int id) {
-        String update ="UPDATE RegularPayment SET fullName='"+instructionRegularPayment.getFullName()+"',inn='"+instructionRegularPayment.getINN()+"',cardNumber='"+instructionRegularPayment.getCardNumber()
+    int update(InstructionRegularPayment instructionRegularPayment) {
+        String update ="UPDATE RegularPayment SET fullName='"+instructionRegularPayment.getFullName()+"',inn='"+instructionRegularPayment.getINN()+"',cardNumber='"+instructionRegularPayment.getCardNumber()  //запрос в БД, для изменения
                 +"',beneficiarysCurrentAccount='"+instructionRegularPayment.getBeneficiarysCurrentAccount()+"',mfo='"+instructionRegularPayment.getMFO()
                 +"',okpo='"+instructionRegularPayment.getOKPO()
                 +"',recipientsName='"+instructionRegularPayment.getRecipientsName()+"',retirementPeriod='"+instructionRegularPayment.getRetirementPeriod()
@@ -25,8 +25,8 @@ public class Payments {
         return template.update(update);
     }
 
-    public int delete(int id) {
-        String delete="DELETE FROM RegularPayment WHERE id="+id+"";
+    int delete(int id) {
+        String delete="DELETE FROM RegularPayment WHERE id="+id+"";     // запрос удаления
         return template.update(delete);
     }
 

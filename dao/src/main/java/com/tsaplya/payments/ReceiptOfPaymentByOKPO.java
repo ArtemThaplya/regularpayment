@@ -10,7 +10,7 @@ public class ReceiptOfPaymentByOKPO implements ReceivingPayment {
 
     @Override
     public InstructionRegularPayment receivingPayment(long okpo) {
-        String sql = "SELECT * FROM RegularPayment WHERE okpo=?";
+        String sql = "SELECT * FROM RegularPayment WHERE okpo=?";                                                   // вывод платежа по OKPO
         return template.queryForObject(sql, new Object[]{okpo}, new BeanPropertyRowMapper<>(InstructionRegularPayment.class));
 
     }

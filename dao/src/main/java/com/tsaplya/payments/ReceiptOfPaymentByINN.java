@@ -12,7 +12,7 @@ public class ReceiptOfPaymentByINN implements ReceivingPayment {
 
     @Override
     public InstructionRegularPayment receivingPayment(long inn) {
-        String sql = "SELECT * FROM RegularPayment WHERE inn=?";                                                // вывод платежа по ИНН
+        String sql = "SELECT * FROM RegularPayment WHERE inn="+inn+"";                                                // вывод платежа по ИНН
         return template.queryForObject(sql, new Object[]{inn}, new BeanPropertyRowMapper<>(InstructionRegularPayment.class));
     }
 }

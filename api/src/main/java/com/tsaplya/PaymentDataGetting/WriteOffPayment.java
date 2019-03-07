@@ -1,4 +1,4 @@
-package com.tsaplya;
+package com.tsaplya.PaymentDataGetting;
 
 import com.tsaplya.entries.Entries;
 import com.tsaplya.payments.VerificationWriteOff;

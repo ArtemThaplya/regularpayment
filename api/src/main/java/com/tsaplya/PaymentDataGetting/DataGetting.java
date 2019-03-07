@@ -1,4 +1,4 @@
-package com.tsaplya;
+package com.tsaplya.PaymentDataGetting;
 
 import com.tsaplya.entries.EntriesByID;
 import com.tsaplya.payments.PaymentByBeneficiarysCurrentAccount;

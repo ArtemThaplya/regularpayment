@@ -27,7 +27,7 @@ public class InstructionRegularPayment {
     @NotNull(message = "Beneficiary current account cannot be null")
     @Size(min = 20, max = 20, message
             = "Must be 20 characters")
-    private Long beneficiarysCurrentAccount;
+    private String beneficiarysCurrentAccount;
 
     @NotNull(message = "MFO cannot be null")
     @Size(min = 6, max = 6, message
@@ -55,7 +55,7 @@ public class InstructionRegularPayment {
     public InstructionRegularPayment(@NotNull(message = "ID cannot be null") int id, @NotNull(message = "Full name cannot be null") String fullName, @NotNull(message = "INN cannot be null") @Size(min = 10, max = 10, message
             = "Must be 10 characters") Long INN, @NotNull(message = "Card number cannot be null") @Size(min = 16, max = 16, message
             = "Must be 16 characters") Long cardNumber, @NotNull(message = "Beneficiary current account cannot be null") @Size(min = 20, max = 20, message
-            = "Must be 20 characters") Long beneficiarysCurrentAccount, @NotNull(message = "MFO cannot be null") @Size(min = 6, max = 6, message
+            = "Must be 20 characters") String beneficiarysCurrentAccount, @NotNull(message = "MFO cannot be null") @Size(min = 6, max = 6, message
             = "Must be 6 characters") int MFO, @NotNull(message = "OKPO cannot be null") @Size(min = 10, max = 10, message
             = "Must be 10 characters") int OKPO, @NotNull(message = "Recipients name cannot be null") String recipientsName, @NotNull(message = "Retirement period cannot be null") Date retirementPeriod, @Positive @NotNull(message = "Amount  of payment cannot be null") BigDecimal amountOfPayment) {
         this.id = id;
@@ -102,11 +102,11 @@ public class InstructionRegularPayment {
         this.cardNumber = cardNumber;
     }
 
-    public Long getBeneficiarysCurrentAccount() {
+    public String getBeneficiarysCurrentAccount() {
         return beneficiarysCurrentAccount;
     }
 
-    public void setBeneficiarysCurrentAccount(Long beneficiarysCurrentAccount) {
+    public void setBeneficiarysCurrentAccount(String beneficiarysCurrentAccount) {
         this.beneficiarysCurrentAccount = beneficiarysCurrentAccount;
     }
 

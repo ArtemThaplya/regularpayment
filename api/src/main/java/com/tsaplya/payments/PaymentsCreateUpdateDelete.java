@@ -1,11 +1,17 @@
 package com.tsaplya.payments;
 
 import com.tsaplya.beans.InstructionRegularPayment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PaymentsCreateUpdateDelete {
-    private Payments payments = new Payments();
+    private final Payments payments;
+
+    @Autowired
+    public PaymentsCreateUpdateDelete(Payments payments) {
+        this.payments = payments;
+    }
 
     @RequestMapping(value = "/createPayments", method = RequestMethod.POST)
     String createPayments(@ModelAttribute("emp") InstructionRegularPayment emp) {           // получение объекта

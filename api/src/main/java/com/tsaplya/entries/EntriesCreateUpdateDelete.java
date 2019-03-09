@@ -1,11 +1,17 @@
 package com.tsaplya.entries;
 
 import com.tsaplya.beans.TransactionEntries;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EntriesCreateUpdateDelete {
-    private Entries entries = new Entries();
+    private final Entries entries;
+
+    @Autowired
+    public EntriesCreateUpdateDelete(Entries entries) {
+        this.entries = entries;
+    }
 
     @RequestMapping(value = "/createEntries", method = RequestMethod.GET)
     String createEntries(@PathVariable int id) {           // получение объекта

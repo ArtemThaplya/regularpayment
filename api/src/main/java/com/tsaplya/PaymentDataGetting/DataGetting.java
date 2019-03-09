@@ -1,10 +1,8 @@
 package com.tsaplya.PaymentDataGetting;
 
-import com.tsaplya.entries.EntriesByID;
-import com.tsaplya.payments.PaymentByBeneficiarysCurrentAccount;
-import com.tsaplya.payments.ReceiptOfPaymentByINN;
+import com.tsaplya.entries.ReceiptOfEntriesByParameter;
+import com.tsaplya.payments.ReceiptPaymentByParameter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,25 +10,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DataGetting {
-    private ReceiptOfPaymentByINN receiptOfPaymentByINN = new ReceiptOfPaymentByINN();
-    private PaymentByBeneficiarysCurrentAccount getPaymentBynecipientsName = new PaymentByBeneficiarysCurrentAccount();
-    private EntriesByID getEntriesByID = new EntriesByID();
+    private final ReceiptPaymentByParameter receiptPaymentByParameter;
+    private final ReceiptOfEntriesByParameter receiptOfEntriesByParameter;
+
     @Autowired
-    private JdbcTemplate template;
+    public DataGetting(ReceiptPaymentByParameter receiptPaymentByParameter, ReceiptOfEntriesByParameter receiptOfEntriesByParameter) {
+        this.receiptPaymentByParameter = receiptPaymentByParameter;
+        this.receiptOfEntriesByParameter = receiptOfEntriesByParameter;
+    }
 
     @RequestMapping(value = "/getPaymentsByPayer/{inn}")
     void getPaymentsByPayer(@PathVariable long inn) {
-        receiptOfPaymentByINN.receivingPayment(inn);                   // получение всех платежей по Плательщику
+        receiptPaymentByParameter.receivingPaymentByINN(inn);                   // получение всех платежей по Плательщику
     }
 
     @RequestMapping(value = "/paymentsByBeneficiarysCurrentAccount/{recipientsName}")
     void paymentsByRecipient(@PathVariable long beneficiarysCurrentAccount) {                // получение всех платежей по получателю
-        getPaymentBynecipientsName.receivingPayment(beneficiarysCurrentAccount);
+        receiptPaymentByParameter.receivingPaymentByINN(beneficiarysCurrentAccount);
     }
 
     @RequestMapping(value = "/paymentDebitHistory/{id}", method = RequestMethod.GET)
     String paymentDebitHistory(@PathVariable long id) {                                // получение истории списания платежа
-        getEntriesByID.entriesByID(id);
+        receiptOfEntriesByParameter.receivingEntriesByID(id);
         return "view";
     }
 }

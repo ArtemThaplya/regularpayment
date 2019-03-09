@@ -4,10 +4,16 @@ package com.tsaplya.payments;
 import com.tsaplya.beans.InstructionRegularPayment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 class Payments {
+    private final JdbcTemplate template;
+
     @Autowired
-    private JdbcTemplate template;
+    public Payments(final JdbcTemplate template) {
+        this.template = template;
+    }
 
     InstructionRegularPayment create(InstructionRegularPayment instructionRegularPayment) {
         String create = "INSERT INTO RegularPayment (fullName, inn, cardNumber, beneficiarysCurrentAccount, mfo, okpo, recipientsName, retirementPeriod, amountOfPayment)"  //запрос в БД, для создания

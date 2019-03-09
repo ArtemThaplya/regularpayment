@@ -3,15 +3,23 @@ package com.tsaplya.entries;
 import com.tsaplya.beans.InstructionRegularPayment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Component
 public class StartWriteOff {
+    private final JdbcTemplate template;
+    private final Entries entries;
+
     @Autowired
-    private JdbcTemplate template;
+    public StartWriteOff(final JdbcTemplate template, final Entries entries) {
+        this.template = template;
+        this.entries = entries;
+    }
 
     public List<InstructionRegularPayment> allPayments() {
         return template.query("SELECT * FROM RegularPayment", (ResultSet rs, int row) -> {         // выбор всех платежей
@@ -31,7 +39,6 @@ public class StartWriteOff {
     }
 
     public void verificationOfNeedForWriteOffPayment() {
-        Entries entries = new Entries();
         long currentTimeMilliSeconds = System.currentTimeMillis();                                                          // текущеее время
         List<InstructionRegularPayment> listRegularPayment = allPayments();                                                 // выбор всех платежей, сохранение в списке
         for (InstructionRegularPayment list : listRegularPayment) {

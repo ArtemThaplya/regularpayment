@@ -1,5 +1,7 @@
 package com.tsaplya.beans;
 
+import com.tsaplya.status.EntriesStatus;
+
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,7 +19,7 @@ public class TransactionEntries {
     @NotNull(message = "ID cannot be null")
     private BigDecimal amountOfPayment;
 
-    private Boolean status;
+    private EntriesStatus status;
 
     public TransactionEntries() {
     }
@@ -54,11 +56,11 @@ public class TransactionEntries {
         this.amountOfPayment = amountOfPayment;
     }
 
-    public Boolean getStatus() {
+    public EntriesStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(EntriesStatus status) {
         this.status = status;
     }
 }

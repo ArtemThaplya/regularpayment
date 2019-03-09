@@ -2,13 +2,20 @@ package com.tsaplya.payments;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+@Component
 public class VerificationWriteOff {
+    private final JdbcTemplate template;
+
     @Autowired
-    private JdbcTemplate template;
+    public VerificationWriteOff(final JdbcTemplate template) {
+        this.template = template;
+    }
+
 
     public long verificationOfNeedForWriteOffOrNot(int idInstructionRegularPayment) {
         String sqlRetirementPeriod = "SELECT retirementPeriod FROM RegularPayment WHERE  id=" + idInstructionRegularPayment + "";         // дата списания

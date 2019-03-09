@@ -5,7 +5,9 @@ import com.tsaplya.payments.VerificationWriteOff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class WriteOffPayment {
     private Entries entries = new Entries();
     private VerificationWriteOff verificationWriteOff = new VerificationWriteOff();

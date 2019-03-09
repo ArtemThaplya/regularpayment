@@ -1,7 +1,9 @@
 package com.tsaplya.payments;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class PaymentByINN {
     private ReceiptOfPaymentByINN receiptOfPaymentByINN = new ReceiptOfPaymentByINN();
 

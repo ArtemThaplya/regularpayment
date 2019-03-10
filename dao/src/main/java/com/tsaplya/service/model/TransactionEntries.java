@@ -1,6 +1,4 @@
-package com.tsaplya.beans;
-
-import com.tsaplya.status.EntriesStatus;
+package com.tsaplya.service.model;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -19,7 +17,7 @@ public class TransactionEntries {
     @NotNull(message = "ID cannot be null")
     private BigDecimal amountOfPayment;
 
-    private EntriesStatus status;
+    private Status status;
 
     public TransactionEntries() {
     }
@@ -56,11 +54,11 @@ public class TransactionEntries {
         this.amountOfPayment = amountOfPayment;
     }
 
-    public EntriesStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(EntriesStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }

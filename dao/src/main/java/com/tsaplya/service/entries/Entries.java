@@ -1,9 +1,9 @@
-package com.tsaplya.entries;
+package com.tsaplya.service.entries;
 
-
-import com.tsaplya.beans.InstructionRegularPayment;
-import com.tsaplya.beans.TransactionEntries;
+import com.tsaplya.service.model.InstructionRegularPayment;
+import com.tsaplya.service.model.TransactionEntries;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
+@ConfigurationProperties("service")
 public class Entries {
     private final Date date = new Date();
     private final JdbcTemplate template;
@@ -39,8 +40,10 @@ public class Entries {
         return template.update(update);
     }
 
+    /*запрос к ДБ для удаления строки
+    * */
     public int delete(int id) {
-        String delete = "DELETE FROM Entries WHERE id=" + id + "";                // запрос к ДБ для удаления строки
+        String delete = "DELETE FROM Entries WHERE id=" + id + "";
         return template.update(delete);
     }
 }

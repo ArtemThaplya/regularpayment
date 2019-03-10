@@ -1,13 +1,13 @@
-package com.tsaplya.payments;
+package com.tsaplya.service.payments;
 
 
-import com.tsaplya.beans.InstructionRegularPayment;
+import com.tsaplya.service.model.InstructionRegularPayment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-class Payments {
+public class Payments {
     private final JdbcTemplate template;
 
     @Autowired
@@ -15,7 +15,7 @@ class Payments {
         this.template = template;
     }
 
-    InstructionRegularPayment create(InstructionRegularPayment instructionRegularPayment) {
+    public InstructionRegularPayment create(InstructionRegularPayment instructionRegularPayment) {
         String create = "INSERT INTO RegularPayment (fullName, inn, cardNumber, beneficiarysCurrentAccount, mfo, okpo, recipientsName, retirementPeriod, amountOfPayment)"  //запрос в БД, для создания
                 + "VALUES('" + instructionRegularPayment.getFullName() + "'," + instructionRegularPayment.getINN() + ",'" + instructionRegularPayment.getCardNumber()
                 + ",'" + instructionRegularPayment.getBeneficiarysCurrentAccount() + ",'" + instructionRegularPayment.getMFO() + ",'" + instructionRegularPayment.getOKPO()
@@ -25,7 +25,7 @@ class Payments {
         return instructionRegularPayment;
     }
 
-    int update(InstructionRegularPayment instructionRegularPayment) {
+    public int update(InstructionRegularPayment instructionRegularPayment) {
         String update = "UPDATE RegularPayment SET fullName='" + instructionRegularPayment.getFullName() + "',inn='" + instructionRegularPayment.getINN() + "',cardNumber='" + instructionRegularPayment.getCardNumber()  //запрос в БД, для изменения
                 + "',beneficiarysCurrentAccount='" + instructionRegularPayment.getBeneficiarysCurrentAccount() + "',mfo='" + instructionRegularPayment.getMFO()
                 + "',okpo='" + instructionRegularPayment.getOKPO()
@@ -34,7 +34,7 @@ class Payments {
         return template.update(update);
     }
 
-    int delete(int id) {
+    public int deletePayments(int id) {
         String delete = "DELETE FROM RegularPayment WHERE id=" + id + "";     // запрос удаления
         return template.update(delete);
     }

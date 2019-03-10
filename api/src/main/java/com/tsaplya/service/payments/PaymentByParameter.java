@@ -1,4 +1,4 @@
-package com.tsaplya.payments;
+package com.tsaplya.service.payments;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

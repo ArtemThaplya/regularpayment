@@ -1,6 +1,6 @@
 package com.tsaplya;
 
-import com.tsaplya.entries.StartWriteOff;
+import com.tsaplya.service.entries.StartWriteOff;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

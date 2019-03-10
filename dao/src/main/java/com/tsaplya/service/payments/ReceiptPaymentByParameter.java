@@ -1,6 +1,6 @@
-package com.tsaplya.payments;
+package com.tsaplya.service.payments;
 
-import com.tsaplya.beans.InstructionRegularPayment;
+import com.tsaplya.service.model.InstructionRegularPayment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

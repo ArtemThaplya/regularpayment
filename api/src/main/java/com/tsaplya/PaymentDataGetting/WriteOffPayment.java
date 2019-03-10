@@ -1,7 +1,7 @@
 package com.tsaplya.PaymentDataGetting;
 
-import com.tsaplya.entries.Entries;
-import com.tsaplya.payments.VerificationWriteOff;
+import com.tsaplya.service.entries.Entries;
+import com.tsaplya.service.payments.VerificationWriteOff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

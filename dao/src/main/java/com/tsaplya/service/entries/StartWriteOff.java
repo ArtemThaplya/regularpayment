@@ -1,7 +1,8 @@
-package com.tsaplya.entries;
+package com.tsaplya.service.entries;
 
-import com.tsaplya.beans.InstructionRegularPayment;
+import com.tsaplya.service.model.InstructionRegularPayment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
+@ConfigurationProperties("service")
 public class StartWriteOff {
     private final JdbcTemplate template;
     private final Entries entries;

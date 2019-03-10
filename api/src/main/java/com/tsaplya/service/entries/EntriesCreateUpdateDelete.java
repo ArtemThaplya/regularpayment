@@ -1,6 +1,6 @@
-package com.tsaplya.entries;
+package com.tsaplya.service.entries;
 
-import com.tsaplya.beans.TransactionEntries;
+import com.tsaplya.service.model.TransactionEntries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

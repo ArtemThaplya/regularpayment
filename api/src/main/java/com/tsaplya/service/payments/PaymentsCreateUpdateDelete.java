@@ -1,6 +1,6 @@
-package com.tsaplya.payments;
+package com.tsaplya.service.payments;
 
-import com.tsaplya.beans.InstructionRegularPayment;
+import com.tsaplya.service.model.InstructionRegularPayment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +27,7 @@ public class PaymentsCreateUpdateDelete {
 
     @RequestMapping(value = "/deletePayment/{id}", method = RequestMethod.GET)
     public String deletePayment(@PathVariable int id) {                                     // получение id
-        payments.delete(id);                                                               // удаление объекта с БД
+        payments.deletePayments(id);                                                               // удаление объекта с БД
         return "redirect:/viewemp";
     }
 }

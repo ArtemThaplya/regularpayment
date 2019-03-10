@@ -1,7 +1,7 @@
 package com.tsaplya.PaymentDataGetting;
 
-import com.tsaplya.entries.ReceiptOfEntriesByParameter;
-import com.tsaplya.payments.ReceiptPaymentByParameter;
+import com.tsaplya.service.entries.ReceiptOfEntriesByParameter;
+import com.tsaplya.service.payments.ReceiptPaymentByParameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

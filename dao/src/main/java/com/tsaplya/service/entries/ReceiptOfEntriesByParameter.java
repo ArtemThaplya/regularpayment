@@ -1,12 +1,14 @@
-package com.tsaplya.entries;
+package com.tsaplya.service.entries;
 
-import com.tsaplya.beans.InstructionRegularPayment;
+import com.tsaplya.service.model.InstructionRegularPayment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConfigurationProperties("service")
 public class ReceiptOfEntriesByParameter {
     private JdbcTemplate template;
 

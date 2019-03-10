@@ -1,4 +1,4 @@
-package com.tsaplya.beans;
+package com.tsaplya.service.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;

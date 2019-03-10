@@ -1,4 +1,4 @@
-package com.tsaplya.entries;
+package com.tsaplya.service.entries;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

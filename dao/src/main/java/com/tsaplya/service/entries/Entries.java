@@ -21,18 +21,23 @@ public class Entries {
         this.template = template;
     }
 
-    public int create(int idInstructionRegularPayment) {                                 // cоздание проводки по платежу
+    /**
+     * Создание проводки по платежу. Запрос к ДБ для создания строки проводки.
+     */
+    public int create(int idInstructionRegularPayment) {
         String sql = "SELECT amountOfPayment FROM RegularPayment WHERE id=" + idInstructionRegularPayment + "";
         InstructionRegularPayment instruction = template.queryForObject(sql, new Object[]{idInstructionRegularPayment}, new BeanPropertyRowMapper<>(InstructionRegularPayment.class));  //получаем объект с БД
-        String create = "INSERT INTO Entries (idInstructionRegularPayment, dateAndTime, amountOfPayment, status)"       // запрос к ДБ для создания строки проводки
+        String create = "INSERT INTO Entries (idInstructionRegularPayment, dateAndTime, amountOfPayment, status)"
                 + "VALUES('" + idInstructionRegularPayment + ",'" + date
                 + ",'" + instruction.getAmountOfPayment() + ",'" + true + "')";
         return template.update(create);
     }
 
+    /**
+     * Запрос к ДБ для изминения строки.
+     */
     public int update(TransactionEntries transactionEntries, int id) {
-
-        String update = "UPDATE Entries SET idInstructionRegularPayment='" + transactionEntries.getIdInstructionRegularPayment()       // запрос к ДБ для изминения строки
+        String update = "UPDATE Entries SET idInstructionRegularPayment='" + transactionEntries.getIdInstructionRegularPayment()
                 + "',idInstructionRegularPayment='" + transactionEntries.getIdInstructionRegularPayment()
                 + "',amountOfPayment='" + transactionEntries.getAmountOfPayment()
                 + "',status='" + transactionEntries.getStatus()
@@ -40,8 +45,9 @@ public class Entries {
         return template.update(update);
     }
 
-    /*запрос к ДБ для удаления строки
-    * */
+    /**
+     * Запрос к ДБ для удаления строки
+     */
     public int delete(int id) {
         String delete = "DELETE FROM Entries WHERE id=" + id + "";
         return template.update(delete);

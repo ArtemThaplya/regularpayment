@@ -17,13 +17,19 @@ public class ReceiptOfEntriesByParameter {
         this.template = template;
     }
 
+    /**
+     * Получения списка проводок по платежу.
+     */
     public InstructionRegularPayment receivingEntriesByPayment(long id) {
-        String sql = "SELECT * FROM Entries WHERE idInstructionRegularPayment=" + id + "";                                          // получения списка проводок по платежу
+        String sql = "SELECT * FROM Entries WHERE idInstructionRegularPayment=" + id + "";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(InstructionRegularPayment.class));
     }
 
+    /**
+     * Получения проводки по ID.
+     */
     public InstructionRegularPayment receivingEntriesByID(long id) {
-        String sql = "SELECT * FROM Entries WHERE id=" + id + "";                       // получения проводки по ID
+        String sql = "SELECT * FROM Entries WHERE id=" + id + "";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(InstructionRegularPayment.class));
     }
 }

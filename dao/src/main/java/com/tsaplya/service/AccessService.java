@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+
 @Service
 @EnableConfigurationProperties({Entries.class, ReceiptOfEntriesByParameter.class, StartWriteOff.class, Payments.class,
         ReceiptPaymentByParameter.class, VerificationWriteOff.class})
@@ -86,11 +88,11 @@ public class AccessService {
         return receiptPaymentByParameter.receivingPaymentByID(id);
     }
 
-    public InstructionRegularPayment receivingPaymentByINN(long inn) {
+    public InstructionRegularPayment receivingPaymentByINN(String inn) {
         return receiptPaymentByParameter.receivingPaymentByINN(inn);
     }
 
-    public InstructionRegularPayment receivingPaymentByOKPO(long okpo) {
+    public InstructionRegularPayment receivingPaymentByOKPO(String okpo) {
         return receiptPaymentByParameter.receivingPaymentByOKPO(okpo);
     }
 

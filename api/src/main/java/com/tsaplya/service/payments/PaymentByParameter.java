@@ -2,7 +2,6 @@ package com.tsaplya.service.payments;
 
 import com.tsaplya.service.AccessService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +18,8 @@ public class PaymentByParameter {
      * Вывод платежа по ID
      */
     @RequestMapping("/paymentByID/{id}")
-    String paymentByID(@PathVariable("id") String id) {
-        accessService.receivingPaymentByID(Long.parseLong(id));
+    String paymentByID(int id) {
+        accessService.receivingPaymentByID(id);
         return "view";
     }
 
@@ -28,7 +27,7 @@ public class PaymentByParameter {
      * Вывод платежа по OKPO
      */
     @RequestMapping("/paymentByOKPO/{OKPO}")
-    String paymentByOKPO(@PathVariable("OKPO") String OKPO) {
+    String paymentByOKPO(int OKPO) {
         accessService.receivingPaymentByOKPO(OKPO);
         return "view";
     }
@@ -37,7 +36,7 @@ public class PaymentByParameter {
      * Вывод платежа по ИНН
      */
     @RequestMapping("/paymentByINN/{inn}")
-    String paymentByINN(@PathVariable("inn") String inn) {
+    String paymentByINN(int inn) {
         accessService.receivingPaymentByINN(inn);
         return "view";
     }

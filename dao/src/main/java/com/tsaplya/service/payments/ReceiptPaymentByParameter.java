@@ -51,9 +51,8 @@ public class ReceiptPaymentByParameter {
 
     /**
      * Вывод платежа по OKPO.
-     * @param okpo
      */
-    public InstructionRegularPayment receivingPaymentByOKPO(String okpo) {
+    public InstructionRegularPayment receivingPaymentByOKPO(long okpo) {
         String sql = "SELECT * FROM RegularPayment WHERE okpo=" + okpo + "";
         return template.queryForObject(sql,
                 new Object[]{okpo},

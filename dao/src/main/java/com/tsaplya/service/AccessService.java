@@ -88,11 +88,11 @@ public class AccessService {
         return receiptPaymentByParameter.receivingPaymentByID(id);
     }
 
-    public InstructionRegularPayment receivingPaymentByINN(String inn) {
+    public InstructionRegularPayment receivingPaymentByINN(long inn) {
         return receiptPaymentByParameter.receivingPaymentByINN(inn);
     }
 
-    public InstructionRegularPayment receivingPaymentByOKPO(String okpo) {
+    public InstructionRegularPayment receivingPaymentByOKPO(long okpo) {
         return receiptPaymentByParameter.receivingPaymentByOKPO(okpo);
     }
 
